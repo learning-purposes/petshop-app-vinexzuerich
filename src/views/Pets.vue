@@ -24,17 +24,15 @@ export default {
   },
   methods: {},
   async created() {
-    const linksArray = this.dogs.map(
-      dog => `/breed/${dog.breed}/images/random`
-    );
-
-    // let dog=function(){
-    //   return `/breed/${dog.breed}/images/random`
-    // }
-
+    const linksArray = this.dogs.map(someFun);
+    // old way
+    function someFun(dog) {
+      return `/breed/${dog.breed}/images/random`;
+    }
     let response;
     try {
       response = await axios.all(linksArray.map(link => axios.get(link)));
+      console.log(response);
     } catch (e) {
       throw Error(e);
     }

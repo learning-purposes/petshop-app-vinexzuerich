@@ -8,7 +8,15 @@
             <v-toolbar-items>
               <v-btn to="/" text>Home</v-btn>
               <v-btn to="/pets" text>Pets</v-btn>
+              <!-- <v-btn to="/favorites" text>Favorites</v-btn> -->
             </v-toolbar-items>
+            <v-spacer></v-spacer>
+            <router-link to="/favorites">
+              <v-badge color="grey lighten-1" overlap right v-model="favorites.length">
+                <span slot="badge">{{favorites.length}}</span>
+                <v-icon large>loyalty</v-icon>
+              </v-badge>
+            </router-link>
           </v-toolbar>
           <v-btn v-on:click="themeSwitcher()">Switch theme</v-btn>
         </header>
@@ -30,6 +38,11 @@ export default {
   methods: {
     themeSwitcher: function() {
       this.themeSwitched = !this.themeSwitched;
+    }
+  },
+  computed: {
+    favorites() {
+      return this.$store.state.favorites;
     }
   }
 };
