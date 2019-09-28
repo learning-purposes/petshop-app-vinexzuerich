@@ -2,16 +2,17 @@
   <v-container grid-list-md fluid>
     <v-layout wrap>
       <v-flex xs12 sm4 md3 v-for="pet in dogs" :key="pet.breed">
-        <DogItem v-bind="pet"></DogItem>
+        <!-- <DogItem v-bind="pet" @addToFavorites="addToFavorites"></DogItem> -->
       </v-flex>>
     </v-layout>
   </v-container>
 </template>
 <script>
 import axios from "axios";
+
 axios.defaults.baseURL = "https://dog.ceo/api";
 import DogItem from "@/components/DogItem";
-
+// import { mapActions } from "vuex";
 import { Dogs } from "../data/dogs";
 export default {
   components: {
@@ -22,7 +23,9 @@ export default {
       dogs: Dogs
     };
   },
-  methods: {},
+  methods: {
+    // ...mapActions(["addToFavorites"])
+  },
   async created() {
     const linksArray = this.dogs.map(someFun);
     // old way

@@ -23,6 +23,14 @@ export default new Vuex.Store({
       },
     ]
   },
-  mutations: {},
-  actions: {}
+  mutations: {
+    addToFavorites(state, payload) {
+      state.favorites.push(payload);
+    },
+  },
+  actions: {
+    addToFavorites({ commit }, payload) {
+      commit('addToFavorites', payload);
+    },
+  }
 });
