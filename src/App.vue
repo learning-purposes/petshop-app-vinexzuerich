@@ -6,8 +6,8 @@
           <h1>My Pet Store</h1>
           <v-toolbar>
             <v-toolbar-items>
-              <v-btn to="/" flat>Home</v-btn>
-              <v-btn to="/pets" flat>Pets</v-btn>
+              <v-btn to="/" text>Home</v-btn>
+              <v-btn to="/pets" text>Pets</v-btn>
             </v-toolbar-items>
           </v-toolbar>
           <v-btn v-on:click="themeSwitcher()">Switch theme</v-btn>
@@ -22,13 +22,8 @@
 </template>
 
 <script>
-import Home from "@/views/Home";
-import Pets from "@/views/Pets";
 export default {
   name: "App",
-  components: {
-    "home-app": Home
-  },
   data: () => ({
     themeSwitched: false
   }),
